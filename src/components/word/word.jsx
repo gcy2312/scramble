@@ -30,6 +30,8 @@ export default class Word extends Component {
         console.log(originalPhrase);
 
         this.scramblePhrase(this.state.sentence);
+        const phraseArr = this.state.originalStr.split('');
+        console.log(phraseArr);
         console.log(this.state.scrambledStr);
       })
       .catch((error) => {
@@ -47,7 +49,6 @@ export default class Word extends Component {
         const firstLetter = e[0];
         const lastLetter = e[e.length - 1];
         const lettersToMix = e.substring(1, e.length - 1);
-        console.log(lettersToMix);
         const mixedLetters = lettersToMix.split('').sort(function () { return 0.3 - Math.random() }).join('');
         const newWord = firstLetter + mixedLetters + lastLetter;
         return newWord
