@@ -1,13 +1,13 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Word from './components/word/word';
+import MainPage from './components/MainPage/MainPage';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Word></Word>
+        <MainPage></MainPage>
       </header>
     </div>
   );
