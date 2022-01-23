@@ -1,6 +1,13 @@
 import './InputSection.css';
 import React, { Component } from 'react';
+
 import Card from 'react-bootstrap/Card';
+import InputGroup from 'react-bootstrap/InputGroup'
+import Form from 'react-bootstrap/Form';
+import FormControl from 'react-bootstrap/FormControl';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+
 import { AutoTabProvider } from 'react-auto-tab';
 import $ from 'jquery';
 
@@ -34,6 +41,9 @@ export default class InputSection extends Component {
     let tabindex = $(e.target).attr("tabindex") || 0;
     const originalArr = this.props.originalArr;
     console.log(tabindex + e.target.value);
+    if (e.target.value === " ") {
+      e.target.classList.add('space-state');
+    }
   }
 
 
@@ -43,9 +53,10 @@ export default class InputSection extends Component {
       arr.push(
         <input
           type="text"
-          className="inputs"
+          className={letter === ' ' ? 'inputs yellow' : 'inputs grey'}
           tabIndex={index}
           key={index}
+          size="5"
           maxLength={1}
           onKeyUp={autoTab}
           onChange={(e) => this.handleInputChanged(e)}
@@ -53,12 +64,12 @@ export default class InputSection extends Component {
       );
       if (letter === " ") {
         const newIndex = index * 100;
-        arr.push(<br key={newIndex} />)
+        arr.push(<div className="break"><br id="break" key={newIndex} /></div>)
       } return arr
     });
 
     return (
-      <div>
+      <div className='inputContainer'>
         {arr}
       </div>
     )
