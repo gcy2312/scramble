@@ -72,22 +72,22 @@ export default class MainPage extends Component {
   render() {
     return (
       <div className="MainPage">
-        <header className="App-header">
-          <Card style={{ width: '50rem' }}>
-            <Word
-              scrambledStr={this.state.scrambledStr}
-              originalStr={this.state.originalStr}
-              score={this.state.score}>
-            </Word>
-            <InputSection
-              scrambledStr={this.state.scrambledStr}
-              originalStr={this.state.originalStr}
-              score={this.state.score}
-              originalArr={this.state.originalArr}>
-            </InputSection>
-          </Card>
 
-        </header>
+        <Card style={{ width: '50rem' }}>
+          <Word
+            scrambledStr={this.state.scrambledStr}
+            originalStr={this.state.originalStr}
+            score={this.state.score}>
+          </Word>
+          <InputSection
+            scrambledStr={this.state.scrambledStr}
+            originalStr={this.state.originalStr}
+            score={this.state.score}
+            originalArr={this.state.originalArr}>
+          </InputSection>
+        </Card>
+
+
       </div>
     );
   }
