@@ -11,7 +11,7 @@ export default class Word extends Component {
     const { score, scrambledStr } = this.props;
     return (
 
-      <Card.Body>
+      <Card.Body id="wordCard">
         <Card.Title id="title">
           {scrambledStr}
         </Card.Title>
