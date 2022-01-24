@@ -29,7 +29,6 @@ export default class MainPage extends Component {
     this.getPhrase();
   }
 
-
   getPhrase() {
     let counter = this.state.counter;
     console.log(counter);
@@ -87,33 +86,33 @@ export default class MainPage extends Component {
     return (
       <div className="MainPage">
 
+        {this.state.counter > 10 ? <EndPage></EndPage> :
+
+          <Card style={{ width: '50rem' }}>
+
+            <Word
+              scrambledStr={this.state.scrambledStr}
+              originalStr={this.state.originalStr}
+              score={this.state.score}>
+            </Word>
+            <InputSection
+              scrambledStr={this.state.scrambledStr}
+              originalStr={this.state.originalStr}
+              score={this.state.score}
+              originalArr={this.state.originalArr}
+            >
+            </InputSection>
+            <NextButton
+              score={this.state.score}
+              counter={this.state.counter}
+              handler={this.handler}
+            ></NextButton>
 
 
-        <Card style={{ width: '50rem' }}>
 
 
-          <Word
-            scrambledStr={this.state.scrambledStr}
-            originalStr={this.state.originalStr}
-            score={this.state.score}>
-          </Word>
-          <InputSection
-            scrambledStr={this.state.scrambledStr}
-            originalStr={this.state.originalStr}
-            score={this.state.score}
-            originalArr={this.state.originalArr}
-          >
-          </InputSection>
-          <NextButton
-            score={this.state.score}
-            counter={this.state.counter}
-            handler={this.handler}
-          ></NextButton>
-
-
-
-
-        </Card>
+          </Card>
+        }
 
 
       </div>
