@@ -18,24 +18,21 @@ export default class MainPage extends Component {
       score: 0,
       originalArr: [],
     };
-
     this.handler = this.handler.bind(this);
-
   }
+
   handler(newCounter, newScore) {
     this.setState({
-      counter: newCounter,
-      score: newScore
-    });
-
-
+      score: newScore,
+      counter: newCounter
+    })
     this.getPhrase();
-    console.log(this.state.counter);
-
   }
 
+
   getPhrase() {
-    let { counter, score } = this.state;
+    let counter = this.state.counter;
+    console.log(counter);
     axios
       .get(`/${counter}`, {})
       .then(res => {
@@ -81,7 +78,6 @@ export default class MainPage extends Component {
 
   componentDidMount() {
     this.getPhrase();
-    // this.getPhrase();
   }
 
 
@@ -95,25 +91,25 @@ export default class MainPage extends Component {
 
         <Card style={{ width: '50rem' }}>
 
-          <div>
-            <Word
-              scrambledStr={this.state.scrambledStr}
-              originalStr={this.state.originalStr}
-              score={this.state.score}>
-            </Word>
-            <InputSection
-              scrambledStr={this.state.scrambledStr}
-              originalStr={this.state.originalStr}
-              score={this.state.score}
-              originalArr={this.state.originalArr}
-            >
-            </InputSection>
-            <NextButton
-              score={this.state.score}
-              counter={this.state.counter}
-              handler={this.handler}
-            ></NextButton>
-          </div>
+
+          <Word
+            scrambledStr={this.state.scrambledStr}
+            originalStr={this.state.originalStr}
+            score={this.state.score}>
+          </Word>
+          <InputSection
+            scrambledStr={this.state.scrambledStr}
+            originalStr={this.state.originalStr}
+            score={this.state.score}
+            originalArr={this.state.originalArr}
+          >
+          </InputSection>
+          <NextButton
+            score={this.state.score}
+            counter={this.state.counter}
+            handler={this.handler}
+          ></NextButton>
+
 
 
 
