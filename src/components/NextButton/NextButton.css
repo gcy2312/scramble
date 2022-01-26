@@ -1,0 +1,16 @@
+#btnContainer{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top:-10px;
+}
+#nextBtn{
+  box-sizing: border-box;
+  background-color: #388e3c;
+  color:#fff;
+  width: 80px;
+  text-align: center;
+   font-size: 18px;
+   border: none;
+   padding: 5px 0px 5px 0px;
+}
