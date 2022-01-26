@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/scramble/static/css/main.200c430a.css",
+    "main.js": "/scramble/static/js/main.05383250.js",
+    "static/js/787.30c60cf0.chunk.js": "/scramble/static/js/787.30c60cf0.chunk.js",
+    "index.html": "/scramble/index.html",
+    "main.200c430a.css.map": "/scramble/static/css/main.200c430a.css.map",
+    "main.05383250.js.map": "/scramble/static/js/main.05383250.js.map",
+    "787.30c60cf0.chunk.js.map": "/scramble/static/js/787.30c60cf0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.200c430a.css",
+    "static/js/main.05383250.js"
+  ]
+}
