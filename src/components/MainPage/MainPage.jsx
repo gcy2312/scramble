@@ -102,13 +102,10 @@ export default class MainPage extends Component {
 
             <Word
               scrambledStr={this.state.scrambledStr}
-              originalStr={this.state.originalStr}
               score={this.state.score}>
             </Word>
 
             <InputSection
-              scrambledStr={this.state.scrambledStr}
-              originalStr={this.state.originalStr}
               score={this.state.score}
               originalArr={this.state.originalArr}
               correct={this.correct}>

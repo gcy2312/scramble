@@ -87,7 +87,7 @@ export default class InputSection extends Component {
 
 
   render() {
-    const { scambledStr, score, originalStr, originalArr, correct } = this.props;
+    const { score, originalArr } = this.props;
     return (
       <Card.Body>
         {this.createInputs(originalArr, score)}
