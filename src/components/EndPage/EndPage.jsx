@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './EndPage.css';
 import Card from 'react-bootstrap/Card';
 class EndPage extends Component {
 
@@ -6,9 +7,11 @@ class EndPage extends Component {
   render() {
 
     return (
-      <Card>
-        <Card.Text>goodbye</Card.Text>
-      </Card>
+      <div id="endCardContainer">
+        <Card id="endCard">
+          <Card.Text>You win!</Card.Text>
+        </Card>
+      </div>
     )
   }
 
