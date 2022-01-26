@@ -1,12 +1,13 @@
-.inputContainer{
+#inputContainer{
     display: inline-flex;
     flex-wrap:wrap;  
     flex-basis: 100%;
+    margin-top:-10px;
 }
 .inputs{
   display:inline; 
   min-width:0em;
-  width:30px;
+  width:47px;
   flex-grow: 1;
   flex-shrink: 1;
   padding:5px;

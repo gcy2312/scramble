@@ -2,19 +2,13 @@ import './InputSection.css';
 import React, { Component } from 'react';
 
 import Card from 'react-bootstrap/Card';
-import InputGroup from 'react-bootstrap/InputGroup'
-import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
-
-import TextField from '@mui/material/TextField';
-
-import { AutoTabProvider } from 'react-auto-tab';
 import $ from 'jquery';
 
 
 
 
 export default class InputSection extends Component {
+
 
   autoTab = e => {
     const BACKSPACE_KEY = 8;
@@ -37,21 +31,27 @@ export default class InputSection extends Component {
     let value = e.target.value.toLowerCase();
     let letter = this.props.originalArr[tabindex].toLowerCase();
     if (letter === value) {
-      console.log(true)
+
       $(e.target).addClass('green');
     } else {
-      console.log(false);
+
       $(e.target).removeClass('green');
     }
-    console.log(tabindex + value);
+
+    this.finishedAnswer();
   }
 
-  createInputs(originalArr) {
+  focus = () => {
+    const firstInput = $("[tabindex=" + 0 + "]");
+    firstInput.focus();
+  }
+
+  createInputs(originalArr, score) {
     const arr = [];
+
     originalArr.map((letter, index) => {
       arr.push(
         <input
-          autofocus="autofocus"
           type="text"
           className={letter === ' ' ? 'inputs yellow' : 'inputs grey'}
           tabIndex={index}
@@ -60,7 +60,9 @@ export default class InputSection extends Component {
           maxLength={1}
           onKeyUp={(e) => this.autoTab(e)}
           onChange={(e) => this.handleInputChanged(e)}
-          tabbable="true" />
+          tabbable="true"
+          ref={() => this.focus()}
+        />
       );
       if (letter === " ") {
         const newIndex = index * 100;
@@ -69,18 +71,26 @@ export default class InputSection extends Component {
     });
 
     return (
-      <div className='inputContainer'>
+      <div key={score} id='inputContainer' >
         {arr}
       </div>
     )
   }
 
+  finishedAnswer() {
+    var allHaveClass = $('#inputContainer input').length == $('#inputContainer input.green').length;
+    if (allHaveClass === true) {
+      const userAnswer = true;
+      this.props.correct(userAnswer);
+    }
+  }
+
 
   render() {
-    const { scambledStr, score, originalStr, originalArr } = this.props;
+    const { scambledStr, score, originalStr, originalArr, correct } = this.props;
     return (
       <Card.Body>
-        {this.createInputs(originalArr)}
+        {this.createInputs(originalArr, score)}
       </Card.Body>
     )
   }
