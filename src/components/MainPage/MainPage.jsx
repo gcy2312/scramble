@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './MainPage.css';
 import axios from '../../axios';
-import $ from 'jquery';
 import Word from '../word/word';
 import EndPage from '../EndPage/EndPage';
 import InputSection from '../InputSection/InputSection';

@@ -78,7 +78,7 @@ export default class InputSection extends Component {
   }
 
   finishedAnswer() {
-    var allHaveClass = $('#inputContainer input').length == $('#inputContainer input.green').length;
+    var allHaveClass = $('#inputContainer input').length === $('#inputContainer input.green').length;
     if (allHaveClass === true) {
       const userAnswer = true;
       this.props.correct(userAnswer);
