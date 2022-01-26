@@ -17,21 +17,33 @@ export default class MainPage extends Component {
       scrambledStr: "",
       score: 0,
       originalArr: [],
+      correctAnswer: false,
     };
     this.handler = this.handler.bind(this);
+    this.correct = this.correct.bind(this);
   }
 
   handler(newCounter, newScore) {
     this.setState({
       score: newScore,
-      counter: newCounter
-    })
-    this.getPhrase();
+      counter: newCounter,
+      correctAnswer: false
+    }, function stateUpdateComplete() {
+      console.log(this.state.counter);
+      this.getPhrase();
+    }.bind(this))
+  }
+
+  correct(userAnswer) {
+    this.setState({
+      correctAnswer: true
+    }, function stateUpdateComplete() {
+      console.log(this.state.correctAnswer);
+    }.bind(this))
   }
 
   getPhrase() {
     let counter = this.state.counter;
-    console.log(counter);
     axios
       .get(`/${counter}`, {})
       .then(res => {
@@ -79,10 +91,8 @@ export default class MainPage extends Component {
     this.getPhrase();
   }
 
-
-
-
   render() {
+
     return (
       <div className="MainPage">
 
@@ -95,21 +105,22 @@ export default class MainPage extends Component {
               originalStr={this.state.originalStr}
               score={this.state.score}>
             </Word>
+
             <InputSection
               scrambledStr={this.state.scrambledStr}
               originalStr={this.state.originalStr}
               score={this.state.score}
               originalArr={this.state.originalArr}
-            >
+              correct={this.correct}>
             </InputSection>
-            <NextButton
-              score={this.state.score}
-              counter={this.state.counter}
-              handler={this.handler}
-            ></NextButton>
 
-
-
+            {this.state.correctAnswer ?
+              <NextButton
+                score={this.state.score}
+                counter={this.state.counter}
+                handler={this.handler}
+              ></NextButton>
+              : null}
 
           </Card>
         }
